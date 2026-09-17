@@ -1,0 +1,12 @@
+.pio/
+.venv/
+__pycache__/
+*.py[cod]
+.vscode/
+!/.vscode/extensions.json
+results/*.log
+results/*.json
+!results/.gitkeep
+!results/protocol-report.json
+!results/fault-injection-report.json
+!results/build-report.md

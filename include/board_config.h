@@ -1,0 +1,16 @@
+#ifndef BOARD_CONFIG_H
+#define BOARD_CONFIG_H
+
+#include "stm32f1xx_hal.h"
+
+#define RS485_DE_GPIO_Port GPIOA
+#define RS485_DE_Pin GPIO_PIN_8
+
+#define STATUS_LED_GPIO_Port GPIOC
+#define STATUS_LED_Pin GPIO_PIN_13
+
+#define RS485_RECEIVE_MODE() HAL_GPIO_WritePin(RS485_DE_GPIO_Port, RS485_DE_Pin, GPIO_PIN_RESET)
+#define RS485_TRANSMIT_MODE() HAL_GPIO_WritePin(RS485_DE_GPIO_Port, RS485_DE_Pin, GPIO_PIN_SET)
+
+#endif
+

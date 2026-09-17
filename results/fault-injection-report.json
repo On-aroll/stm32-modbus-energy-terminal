@@ -1,0 +1,62 @@
+{
+  "mode": "host fault-injection simulation",
+  "scenario": "valid -> four timeouts -> recovery",
+  "timeline": [
+    {
+      "poll": 1,
+      "response_valid": true,
+      "consecutive_failures": 0,
+      "successful_polls": 1,
+      "failed_polls": 0,
+      "status": "ONLINE"
+    },
+    {
+      "poll": 2,
+      "response_valid": false,
+      "consecutive_failures": 1,
+      "successful_polls": 1,
+      "failed_polls": 1,
+      "status": "DEGRADED"
+    },
+    {
+      "poll": 3,
+      "response_valid": false,
+      "consecutive_failures": 2,
+      "successful_polls": 1,
+      "failed_polls": 2,
+      "status": "DEGRADED"
+    },
+    {
+      "poll": 4,
+      "response_valid": false,
+      "consecutive_failures": 3,
+      "successful_polls": 1,
+      "failed_polls": 3,
+      "status": "COMMUNICATION_LOST"
+    },
+    {
+      "poll": 5,
+      "response_valid": false,
+      "consecutive_failures": 4,
+      "successful_polls": 1,
+      "failed_polls": 4,
+      "status": "COMMUNICATION_LOST"
+    },
+    {
+      "poll": 6,
+      "response_valid": true,
+      "consecutive_failures": 0,
+      "successful_polls": 2,
+      "failed_polls": 4,
+      "status": "ONLINE"
+    },
+    {
+      "poll": 7,
+      "response_valid": true,
+      "consecutive_failures": 0,
+      "successful_polls": 3,
+      "failed_polls": 4,
+      "status": "ONLINE"
+    }
+  ]
+}
