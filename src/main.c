@@ -33,6 +33,10 @@ static void Error_Handler(void);
 static void debug_write(const char *text);
 static bool poll_meter(void);
 
+void SysTick_Handler(void) {
+    HAL_IncTick();
+}
+
 int main(void) {
     HAL_Init();
     SystemClock_Config();

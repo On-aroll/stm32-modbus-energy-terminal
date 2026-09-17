@@ -8,10 +8,11 @@
 
 | 项目 | 状态 | 可复现证据 |
 |---|---|---|
-| Modbus CRC、请求组帧、响应解码 | 已通过主机端自动化测试 | `python -m unittest discover -v` |
+| Modbus CRC、请求组帧、响应解码及示例功率一致性 | 已通过 6 项主机端自动化测试 | `python -m unittest discover -v` |
 | 示例报文端到端解析 | 已通过协议仿真 | `python tools/frame_lab.py` |
 | 连续超时与自动恢复 | 已通过故障注入仿真 | `python tools/fault_lab.py` |
 | STM32F103C8T6 固件 | PlatformIO 编译验证（Flash 32.7%，RAM 5.1%） | `pio run` 与 `results/build-report.md` |
+| HAL 毫秒时基链接 | 已确认 SysTick 为强中断处理函数且保留 HAL_IncTick | `python tools/check_firmware_symbols.py` |
 | 真实电表/RS485 台架 | 待实物验证 | `hardware/bringup-checklist.md` |
 
 “编译通过”和“协议仿真”不等同于真实硬件测试。仓库保留了完整的台架测试模板，待接入实物后补充照片、串口日志和测试结论。
@@ -51,7 +52,7 @@ flowchart LR
 ```text
 Ua=230.1 V  Ub=229.7 V  Uc=230.4 V
 Ia=32.1 A   Ib=30.8 A   Ic=31.5 A
-P=204.6 kW  PF=0.952    F=50.01 Hz  Load=72.1 %
+P=20.7 kW   PF=0.952    F=50.01 Hz  Load=72.1 %
 ```
 
 ## 快速复现
@@ -74,7 +75,10 @@ python tools/fault_lab.py
 
 ```bash
 pio run
+python tools/check_firmware_symbols.py
 ```
+
+链接检查会拒绝指向默认死循环的弱 `SysTick_Handler`。工具链使用自定义安装位置时，可给脚本传入 `--nm /path/to/arm-none-eabi-nm`。
 
 接入 ST-LINK 后可执行：
 

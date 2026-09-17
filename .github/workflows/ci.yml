@@ -22,3 +22,5 @@ jobs:
         run: python tools/fault_lab.py
       - name: Compile STM32 firmware
         run: pio run
+      - name: Check linked SysTick timebase
+        run: python tools/check_firmware_symbols.py

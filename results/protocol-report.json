@@ -1,7 +1,7 @@
 {
   "mode": "host protocol simulation",
   "request_hex": "01 04 00 00 00 0A 70 0D",
-  "response_hex": "01 04 14 08 FD 08 F9 09 00 01 41 01 34 01 3B 07 FE 03 B8 13 89 02 D1 88 F1",
+  "response_hex": "01 04 14 08 FD 08 F9 09 00 01 41 01 34 01 3B 00 CF 03 B8 13 89 02 D1 E9 D4",
   "decoded": {
     "voltage_v": [
       230.1,
@@ -13,7 +13,7 @@
       30.8,
       31.5
     ],
-    "active_power_kw": 204.6,
+    "active_power_kw": 20.7,
     "power_factor": 0.952,
     "frequency_hz": 50.01,
     "load_rate_pct": 72.1
